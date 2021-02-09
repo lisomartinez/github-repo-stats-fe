@@ -1,51 +1,10 @@
-function isLessThan1k(num: string) {
-    return num.length < 4
-}
-
-function isLessThanOneMillion(num: string) {
-    return num.length < 7
-}
-
-function isMoreOrEqualThanAMillion(num: string) {
-    return num.length >= 7
-}
-
-function is1k(num: string) {
-    return num.length === 4
-}
-
-const THOUSAND = "k"
-const MILLION = "m"
-
-const HUNDREDS = 3
-
-const format = (num: string): string => {
-
-
-    if (isLessThan1k(num)) {
-        return num
-    }
-    const chars = Array.from(num)
-    if (isLessThanOneMillion(num)) {
-        const hundredsDigits = num.length - HUNDREDS
-        const hundreds = chars.slice(0,hundredsDigits).join("")
-        const afterDot =  is1k(num) ? "." + chars.slice(hundredsDigits, 4).join("") :  THOUSAND
-        return hundreds + afterDot
-    }
-
-    if (isMoreOrEqualThanAMillion(num)) {
-        const until =  HUNDREDS + (num.length - 8 >= 0 ? num.length - 8 : 0)
-        const millionDigits = num.length - 6
-        return chars.slice(0,millionDigits).join("") + "." + chars.slice(millionDigits, until).join("") + MILLION
-    }
-
-}
+import format from "./RepoStatsFormatter"
 
 test("less than 1000 remains as it is", () => {
     const formatted = format("999")
     expect(formatted).toBe("999")
 })
- 
+
 test("between 1000 and 9999 is format with dot separating units", () => {
     const formatted = format("9999")
     expect(formatted).toBe("9.999")
@@ -79,4 +38,16 @@ test("between 10000000 and 19999999 is rounded with two digits", () => {
 test("between 100000000 and 199999999 is rounded with two digits", () => {
     const formatted = format("121199999")
     expect(formatted).toBe("121.1m")
+})
+
+test("if is not a number throw error", () => {
+    const formatted = () => format("12a1199999")
+    expect(formatted).toThrow(TypeError)
+    expect(formatted).toThrow("num should be a integer number")
+})
+
+test("if is not an integer throw error", () => {
+    const formatted = () => format("12.2")
+    expect(formatted).toThrow(TypeError)
+    expect(formatted).toThrow("num should be a integer number")
 })
