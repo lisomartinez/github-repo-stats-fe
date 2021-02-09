@@ -6,7 +6,7 @@ type Props = {
 
 const RepoTag: React.FC<Props> = ({tag}) => {
     return (
-        <div className="font-sans font-normal text-white text-xs rounded-xl bg-green-500 px-2 py-0.5 mr-3">{tag}</div>
+        <div className="px-2 mr-3 font-sans text-xs font-medium tracking-wide leading-4 text-gray-800 bg-yellow-200 rounded-xl">{tag}</div>
     )
 }
 

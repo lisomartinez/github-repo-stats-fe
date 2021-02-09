@@ -6,7 +6,7 @@ type Props = {
 
 const RepoName: React.FC<Props> = ({name}) => {
     return (
-        <div className="font-bold text-gray-900 text-3xl antialiased uppercase w-full text-center mb-1">
+        <div className="my-1 w-full text-3xl antialiased font-bold text-center text-gray-900 uppercase">
             {name}
         </div>
     )

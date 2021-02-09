@@ -4,8 +4,8 @@ type Props = {};
 
 const RepoActions: React.FC<Props> = () => {
     return (
-        <div className="flex flex-row w-full justify-center mt-9">
-            <div className="bg-green-600 px-2 py-1 rounded-2xl text-gray-50 align-middle text-center">
+        <div className="flex flex-row justify-center mt-9 w-full">
+            <div className="py-1 px-2 text-center text-gray-50 align-middle bg-yellow-700 rounded-3xl">
                 GO
             </div>
         </div>

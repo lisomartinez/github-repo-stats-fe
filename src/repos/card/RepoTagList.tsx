@@ -7,7 +7,7 @@ type Props = {
 
 const RepoTagList: React.FC<Props> = ({tags}) => {
     return (
-        <div className="flex flex-row content-start items-baseline justify-center mx-4">
+        <div className="flex flex-row justify-center content-start items-baseline mx-4">
             {tags.map((tag: string) => <RepoTag key={tag} tag={tag}/>)}
         </div>
     )

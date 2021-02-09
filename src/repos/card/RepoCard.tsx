@@ -12,9 +12,9 @@ type Props = {
 
 const RepoCard: React.FC<Props> = ({repo}) => {
     return (
-        <div className="rounded-3xl shadow-2xl w-96 flex flex-col py-5">
-            <RepoName name={repo.name}/>
+        <div className="flex flex-col py-5 mb-20 w-80 bg-gray-50 rounded-3xl shadow-2xl">
             <RepoTagList tags={repo.tags}/>
+            <RepoName name={repo.name}/>
             <RepoStats stats={repo.stats}/>
             <RepoActions/>
         </div>
