@@ -1,5 +1,5 @@
-export default (num: string): string => {
-    validateFormat(num)
+export default function format(stat: number): string  {
+    const num = stat.toString()
     if (isLessThan1k(num)) return num
     if (isLessThan10k(num)) return formatLessThan10k(num)
     if (isLessThanOneMillion(num)) return formatLessThanOneMillion(num)
